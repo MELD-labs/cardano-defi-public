@@ -1,0 +1,165 @@
+networkId:
+  testnet: 2
+networkParamsFetchDelay: 5
+mint:
+  tMELD:
+    - 37500
+    - 75000
+  tWRT:
+    - 3750
+    - 7500
+  tCOPI:
+    - 15000
+    - 37500
+  tC3:
+    - 3750
+    - 7500
+  tMIN:
+    - 375000
+    - 600000
+  tHOSKY: # We are using fixedDecimal 6
+    - 750
+    - 22500
+  tiUSD:
+    - 750
+    - 1500
+  tWMT:
+    - 7500
+    - 11250
+spent:
+  lovelace: 10
+collateral: 5
+feeAndChange: 5
+numberOfTokensPerUser: 3
+nft:
+  MeldBankManagerv1_1:
+    name: MeldBankManagerv1_1
+    description: Meld Bank Manager Collection v1
+    image: ipfs://QmdEAbAhrJmM6RTgWRFDtUrA7EHLzxkwU9uozFq3MQhJh9
+    mediaType: image/png
+    website: https://meld.com/
+    date: "2023-03-13 21:42:47.262855"
+    attributes:
+      - trait_type: Background
+        value: Pink Pop
+      - trait_type: Body
+        value: Red Omni Manager
+      - trait_type: Eyes
+        value: None
+      - trait_type: Mouth
+        value: None
+      - trait_type: Hair
+        value: Red Steele
+      - trait_type: Clothes
+        value: Silver Mango Mango Cloud
+      - trait_type: Accessories
+        value: None
+      - trait_type: Face
+        value: Kumo
+      - trait_type: Corona
+        value: None
+      - trait_type: Neckpiece
+        value: Ghost
+      - trait_type: Special
+        value: None
+    dna: d7d5138af73038efb7f5717612a4faa8668b0e9fa05323193888fb1974a1b1a4
+  Arsenal:
+    name: Arsenal
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/602.png
+    mediaType: image/png
+    id: 602
+  Aston Villa:
+    name: Aston Villa
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/603.png
+    mediaType: image/png
+    id: 603
+  Brentford:
+    name: Brentford
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/617.png
+    mediaType: image/png
+    id: 617
+  Brighton:
+    name: Brighton
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/618.png
+    mediaType: image/png
+    id: 618
+  Burnley:
+    name: Burnley
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/622.png
+    mediaType: image/png
+    id: 622
+  Chelsea:
+    name: Chelsea
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/630.png
+    mediaType: image/png
+    id: 630
+  Crystal Palace:
+    name: Crystal Palace
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/642.png
+    mediaType: image/png
+    id: 642
+  Everton:
+    name: Everton
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/650.png
+    mediaType: image/png
+    id: 650
+  Leeds United:
+    name: Leeds United
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/671.png
+    mediaType: image/png
+    id: 671
+  Leicester City:
+    name: Leicester City
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/673.png
+    mediaType: image/png
+    id: 673
+  Liverpool:
+    name: Liverpool
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/676.png
+    mediaType: image/png
+    id: 676
+  Manchester City:
+    name: Manchester City
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/679.png
+    mediaType: image/png
+    id: 679
+  Manchester United:
+    name: Manchester United
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/680.png
+    mediaType: image/png
+    id: 680
+  Newcastle United:
+    name: Newcastle United
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/688.png
+    mediaType: image/png
+    id: 688
+  Norwich City:
+    name: Norwich City
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/691.png
+    mediaType: image/png
+    id: 691
+  Southampton:
+    name: Southampton
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/713.png
+    mediaType: image/png
+    id: 713
+  Tottenham Hotspur:
+    name: Tottenham Hotspur
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/728.png
+    mediaType: image/png
+    id: 728
+  Watford:
+    name: Watford
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/732.png
+    mediaType: image/png
+    id: 732
+  West Ham United:
+    name: West Ham United
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/735.png
+    mediaType: image/png
+    id: 735
+  Wolverhampton Wanderers:
+    name: Wolverhampton Wanderers
+    image: ipfs://QmT98rgSkP7ovkvdXWBEhFnPmbXBCd2mXgM3KhsP3KWEYy/740.png
+    mediaType: image/png
+    id: 740

@@ -1,0 +1,212 @@
+# For local development and integration testing of the code base.
+
+version: "3"
+
+services:
+  lending-bootstrap-deployer:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-bootstrap-deployer:${TAG:-latest}
+    volumes:
+      - cardano-node-socket:/ipc
+    environment:
+      DEPLOYER_SIGNING_KEY_FILE: /run/secrets/deployer_signing_key_file
+      DEPLOYER_CONFIG_FILE: /config/$NETWORK/runtime/lending-bootstrap-deployer.yaml
+      SCRIPT_DIR: /exported-contracts/$NETWORK/
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      GHCRTS: -N # Consider to enable this on deployment
+    secrets:
+      - deployer_signing_key_file
+    configs:
+      - source: runtime-config
+        target: /config/$NETWORK/runtime
+
+  lending-bootstrap-initializer:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-bootstrap-initializer:${TAG:-latest}
+    volumes:
+      - cardano-node-socket:/ipc
+    environment:
+      DEPLOYER_SIGNING_KEY_FILE: /run/secrets/deployer_signing_key_file
+      CONTRACT_EXPORTER_CONFIG_FILE: /config/$NETWORK/lending-contracts-exporter.yaml
+      INITIALIZER_CONFIG_FILE: /config/$NETWORK/runtime/lending-bootstrap-initializer.yaml
+      SCRIPT_DIR: /exported-contracts/$NETWORK/
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      GHCRTS: -N # Consider to enable this on deployment
+    secrets:
+      - deployer_signing_key_file
+    configs:
+      - source: runtime-config
+        target: /config/$NETWORK/runtime
+
+  lending-db:
+    image: postgres:14.4-alpine3.16
+    ports:
+      - "15432:5432"
+    command: ["postgres", "-cshared_preload_libraries=pg_stat_statements"]
+    environment:
+      POSTGRES_USER: lending-user
+      POSTGRES_PASSWORD: lending-password
+      POSTGRES_DB: lending-dev
+    volumes:
+      - lending-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 1s
+      retries: 5
+      start_period: 20s
+
+  lending-index:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-index:${TAG:-latest}
+    environment:
+      INDEX_CONFIG_FILE: /config/$NETWORK/lending-index.yaml
+      SCRIPT_HASH_MAP_FILE: /exported-contracts/$NETWORK/script-hash-map.yaml
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      # GHCRTS: -N # Consider to enable this on deployment
+    volumes:
+      - cardano-node-socket:/ipc
+
+  lending-api:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-api:${TAG:-latest}
+    ports:
+      - "3000:3000"
+    environment:
+      API_CONFIG_FILE: /config/$NETWORK/lending-api.yaml
+      SCRIPT_DIR: /exported-contracts/$NETWORK/
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      GHCRTS: -N # Consider to enable this on deployment
+    volumes:
+      - cardano-node-socket:/ipc
+
+  lending-api-docs:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-api-docs:${TAG:-latest}
+    ports:
+      - "3002:3002"
+    environment:
+      API_HOST: http://localhost:3000
+      FAUCET_API_HOST: http://localhost:3001
+      # GHCRTS: -N # Consider to enable this on deployment
+
+  lending-services:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-services:${TAG:-latest}
+    environment:
+      BATCHER_SIGNING_KEY_FILE: /run/secrets/batcher_signing_key_file
+      SERVICES_CONFIG_FILE: /config/$NETWORK/lending-services.yaml
+      SCRIPT_DIR: /exported-contracts/$NETWORK/
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      # GHCRTS: -N # Consider to enable this on deployment
+    volumes:
+      - cardano-node-socket:/ipc
+    secrets:
+      - batcher_signing_key_file
+
+  lending-oracle-service:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-oracle-service:${TAG:-latest}
+    environment:
+      ORACLE_OPERATOR_SIGNING_KEY_FILE: /run/secrets/oracle_operator_signing_key_file
+      ORACLE_SERVICE_CONFIG_FILE: /config/$NETWORK/lending-oracle-service.yaml
+      SCRIPT_HASH_MAP_FILE: /exported-contracts/$NETWORK/script-hash-map.yaml
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      CMC_PRO_API_KEY_FILE: /run/secrets/coin-market-cap-api-key-file
+      CMC_URL: http://lending-mock-api:3003 # https://pro-api.coinmarketcap.com/v2
+      # GHCRTS: -N # Consider to enable this on deployment
+    volumes:
+      - cardano-node-socket:/ipc
+    secrets:
+      - oracle_operator_signing_key_file
+      - coin-market-cap-api-key-file
+
+  lending-tests:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-tests:${TAG:-latest}
+    profiles:
+      - test
+    environment:
+      MANAGER_OPERATOR_SIGNING_KEY_FILE: /run/secrets/manager_operator_signing_key_file
+      POOL_OPERATOR_SIGNING_KEY_FILE: /run/secrets/pool_operator_signing_key_file
+      MIGRATION_OPERATOR_SIGNING_KEY_FILE: /run/secrets/migration_operator_signing_key_file
+      STAKE_SIGNING_KEY_FILE: /run/secrets/stake_signing_key_file
+      LIQUIDATOR_SIGNING_KEY_FILE: /run/secrets/liquidator_signing_key_file
+      API_URL: http://lending-api:3000
+      FAUCET_URL: http://lending-faucet:3001
+      MOCK_API_URL: http://lending-mock-api:3003
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      FUNCTIONAL_TEST: ${FUNCTIONAL_TEST:-}
+      # GHCRTS: -N # Consider to enable this on deployment
+    volumes:
+      - cardano-node-socket:/ipc
+    secrets:
+      - manager_operator_signing_key_file
+      - pool_operator_signing_key_file
+      - migration_operator_signing_key_file
+      - stake_signing_key_file
+      - liquidator_signing_key_file
+    configs:
+      - source: lending-functional-tests
+        target: /resources/functional-tests
+
+  lending-faucet:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-faucet:${TAG:-latest}
+    environment:
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+      FAUCET_CONFIG_FILE: /config/$NETWORK/lending-faucet.yaml
+      FAUCET_SIGNING_KEY_FILE: /run/secrets/faucet_signing_key_file
+      # GHCRTS: -N # Consider to enable this on deployment
+    volumes:
+      - cardano-node-socket:/ipc
+    ports:
+      - "3001:3001"
+    secrets:
+      - faucet_signing_key_file
+
+  lending-mock-api:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-mock-api:${TAG:-latest}
+    environment:
+      ORACLE_SERVICE_CONFIG_FILE: /config/$NETWORK/lending-oracle-service.yaml
+      # GHCRTS: -N # Consider to enable this on deployment
+    ports:
+      - "3003:3003"
+
+  lending-liquidation-bot-liquidate:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-liquidation-bot-liquidate:${TAG:-latest}
+    profiles:
+      - liquidation
+    environment:
+      LENDING_API_URL: http://lending-api:3000
+      LIQUIDATOR_SIGNING_KEY_FILE: /run/secrets/liquidator_signing_key_file
+      LIQUIDATION_BOT_CONFIG_FILE: ${LIQUIDATION_BOT_CONFIG_FILE:-/config/$NETWORK/runtime/lending-liquidation-bot.yaml}
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+    volumes:
+      - cardano-node-socket:/ipc
+    secrets:
+      - liquidator_signing_key_file
+    configs:
+      - source: runtime-config
+        target: /config/$NETWORK/runtime
+
+  lending-liquidation-bot-close-account:
+    image: 342832411065.dkr.ecr.eu-west-1.amazonaws.com/lending-liquidation-bot-close-account:${TAG:-latest}
+    profiles:
+      - liquidation
+    environment:
+      LENDING_API_URL: http://lending-api:3000
+      LIQUIDATOR_SIGNING_KEY_FILE: /run/secrets/liquidator_signing_key_file
+      LIQUIDATION_BOT_CONFIG_FILE: ${LIQUIDATION_BOT_CONFIG_FILE:-/config/$NETWORK/runtime/lending-liquidation-bot.yaml}
+      DB_CONNECTION_STRING: postgres://lending-user:lending-password@lending-db:5432/lending-dev
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+    volumes:
+      - cardano-node-socket:/ipc
+    secrets:
+      - liquidator_signing_key_file
+    configs:
+      - source: runtime-config
+        target: /config/$NETWORK/runtime
+
+configs:
+  runtime-config:
+    file: ../config/$NETWORK/runtime
+  lending-functional-tests:
+    file: ../resources/functional-tests

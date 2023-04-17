@@ -1,0 +1,17 @@
+indentation: 2
+function-arrows: leading
+comma-style: leading
+import-export-style: leading
+indent-wheres: true
+record-brace-space: true
+newlines-between-decls: 1
+haddock-style: single-line
+respectful: true
+fixities:
+  - "infixr 0 #$"
+  - "infixr 2 #||"
+  - "infixr 3 #&&"
+  - "infixr 4 #=="
+  - "infixr 6 .&"
+  - "infixr 7 .="
+  - "infixl 8 #"

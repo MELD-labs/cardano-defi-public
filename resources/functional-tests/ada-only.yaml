@@ -1,0 +1,8 @@
+name: "Ada-only"
+disable: true
+steps:
+  - oracle:
+      ADA: 0.3
+  - update:
+      a0:
+        - supply: 1 ADA

@@ -1,0 +1,94 @@
+cabal-version:      3.6
+name:               lending-oracle-service
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+  ghc-options:
+    -Weverything -Werror
+    -Wno-implicit-prelude
+    -Wno-all-missed-specialisations
+    -Wno-missing-local-signatures
+    -Wno-missing-safe-haskell-mode
+    -Wno-unsafe
+    -Wno-safe
+  build-depends:
+    , base
+
+library
+  import: lang
+  hs-source-dirs:   src
+  exposed-modules:
+    Lending.Oracle.Service.Client
+    Lending.Oracle.Service.AppEnv
+    Lending.Oracle.Service.Config
+    Lending.Oracle.Service.Runner
+    Lending.Oracle.Service.Runner.GetUpdateOracleConstraints
+    Lending.Oracle.Service.Runner.Utils
+    Lending.Oracle.Service.Transactions.UpdateOracle
+  build-depends:
+    , aeson
+    , bytestring
+    , cardano-api
+    , cardano-api-extra
+    , containers
+    , exceptions
+    , extra
+    , http-client
+    , http-client-tls
+    , monad-logger
+    , persistent
+    , persistent-postgresql
+    , resourcet
+    , servant
+    , servant-client
+    , tagged
+    , text
+    , transformers
+    , yaml
+    -- Internal
+    , cardano-index
+    , cardano-tx-builder
+    , lending-core
+    , lending-index
+    , lending-oracle-service:lending-oracle-api-types
+    , lending-types
+    , plutus-ledger-api-polyfill
+
+library lending-oracle-api-types
+  import: lang
+  visibility: public
+  hs-source-dirs: types
+  exposed-modules:
+    Lending.Oracle.Api.Exceptions
+    Lending.Oracle.Api.Types
+    Lending.Oracle.Api.Types.FeedPrice
+    Lending.Oracle.Api.Types.Quote
+  build-depends:
+    , aeson
+    , cardano-api
+    , containers
+    , servant
+    , servant-client
+    , text
+    -- Internal
+    , lending-types
+
+executable lending-oracle-service-exe
+  import:         lang
+  hs-source-dirs: app
+  main-is:        Main.hs
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    , exceptions
+    , monad-logger
+    , text
+    , transformers
+    -- Internal
+    , lending-oracle-service
+    , service-runner

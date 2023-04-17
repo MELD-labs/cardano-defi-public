@@ -1,0 +1,84 @@
+import: build/common.cabal.project
+
+packages:
+  lending-api
+  lending-api-docs
+  lending-bootstrap
+  lending-core
+  lending-faucet
+  lending-index
+  lending-mock-api
+  lending-oracle-service
+  lending-services
+  lending-tests
+  lending-types
+  lending-liquidation-bot
+  lending-migration
+
+active-repositories: hackage.haskell.org, cardano-haskell-packages:override
+
+with-compiler: ghc-8.10.7
+
+package plutus-ledger-api-polyfill
+  flags: -is-contract
+
+package plutarch-script-converter-shared
+  flags: -is-contract
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- Private and direct dependency.
+source-repository-package
+  type: git
+  location: git@github.com:MELD-labs/meld-cardano-libs.git
+  tag: 74b83e1aee2f4057319153c18f1a0cd86f59c61f
+  subdir:
+    api-aeson
+    cardano-api-extra
+    cardano-bootstrap-deployer
+    cardano-index
+    cardano-tx-builder
+    plutarch-script-converter/import
+    plutarch-script-converter/shared
+    plutus-ledger-api-polyfill
+    servant-api-handlers
+    service-runner
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- Direct dependency. Tracking main, as of 2022 Oct 17th.
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/plutus-apps
+  tag: 80d968baa9103148f1e9508c2864bb5b7adb4b6c
+  subdir:
+    plutus-script-utils
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- Tracking 0.2.0
+source-repository-package
+  type: git
+  location: https://github.com/mlabs-haskell/ply
+  tag: 2d63c6ae2629041385b0fb78db5ace2bab5923ea
+  subdir:
+    ply-core
+
+package ply-core
+  flags: -new-ledger-namespace
+
+------------------------------------------------------------------------------------------------------------------------
+
+constraints:
+  , algebraic-graphs < 0.7
+  , protolude < 0.3.1
+  , cardano-binary < 1.5.0.1
+  , cardano-crypto-class < 2.0.0.1
+  , cardano-crypto-praos < 2.0.0.1
+  , cardano-prelude < 0.1.0.1
+
+allow-newer:
+  , *:aeson
+
+package cardano-crypto-praos
+  flags: -external-libsodium-vrf

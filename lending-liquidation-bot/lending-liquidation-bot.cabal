@@ -1,0 +1,94 @@
+cabal-version:      3.6
+name:               lending-liquidation-bot
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+  ghc-options:
+    -Weverything -Werror
+    -Wno-implicit-prelude
+    -Wno-all-missed-specialisations
+    -Wno-missing-local-signatures
+    -Wno-missing-safe-haskell-mode
+    -Wno-monomorphism-restriction
+    -Wno-unsafe
+    -Wno-safe
+  build-depends:
+    , base ^>=4.14.3.0
+
+library
+  import: lang
+  hs-source-dirs:   src
+  exposed-modules:
+    LiquidationBot.Env
+    LiquidationBot.Exception
+    LiquidationBot.Handler
+  build-depends:
+    , aeson
+    , base ^>=4.14.3.0
+    , bytestring
+    , cardano-api
+    , containers
+    , esqueleto
+    , exceptions
+    , extra
+    , http-client
+    , http-client-tls
+    , monad-logger
+    , mtl
+    , persistent
+    , resourcet
+    , servant-client
+    , tagged
+    , transformers
+    , yaml
+    -- Internal
+    , lending-api:lending-api-types
+    , cardano-api-extra
+    , cardano-index
+    , cardano-tx-builder
+    , lending-index
+    , lending-core
+    , lending-types
+    , plutus-ledger-api-polyfill
+
+executable lending-liquidation-bot-liquidate
+  import: lang
+  main-is: Main.hs
+  hs-source-dirs: app/liquidate
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    , base
+    -- Internal
+    , lending-liquidation-bot
+    , service-runner
+
+executable lending-liquidation-bot-close-account
+  import: lang
+  main-is: Main.hs
+  hs-source-dirs: app/close
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    , base
+    -- Internal
+    , lending-liquidation-bot
+    , service-runner
+
+test-suite lending-liquidation-bot-test
+  import: lang
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs: test
+  build-depends:
+    , containers
+    , tasty
+    , tasty-hunit
+    -- Internal
+    , lending-liquidation-bot
+    , lending-types

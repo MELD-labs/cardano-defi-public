@@ -1,0 +1,54 @@
+cabal-version:      3.6
+name:               lending-mock-api
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+  ghc-options:
+    -Weverything -Werror
+    -Wno-implicit-prelude
+    -Wno-all-missed-specialisations
+    -Wno-missing-local-signatures
+    -Wno-missing-safe-haskell-mode
+    -Wno-unsafe
+    -Wno-safe
+  build-depends:
+    , base
+
+library
+  import: lang
+  hs-source-dirs:   src
+  exposed-modules:
+    Lending.Mock.Api.AppEnv
+    Lending.Mock.Api.Handler
+    Lending.Mock.Api.Handler.FeedPrice
+    Lending.Mock.Api.Handler.Quote
+  build-depends:
+    , containers
+    , monad-logger
+    , servant-server
+    , tagged
+    , text
+    , transformers
+    , yaml
+    -- Internal
+    , lending-core
+    , lending-oracle-service:lending-oracle-api-types
+    , lending-types
+    , plutus-ledger-api-polyfill
+    , servant-api-handlers
+
+executable lending-mock-api-exe
+  import:         lang
+  hs-source-dirs: app
+  main-is:        Main.hs
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    -- Internal
+    , lending-mock-api
+    , service-runner

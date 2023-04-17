@@ -1,0 +1,40 @@
+name: "Liquidation"
+disable: true
+steps:
+  - oracle:
+      ADA: 0.3
+      tMELD: 0.02
+      tWRT: 0.09
+      tCOPI: 0.015
+      tC3: 0.015
+      tMIN: 0.01
+      tHOSKY: 0.000001
+      tiUSD: 1
+      tiBTC: 17000
+      tWMT: 0.2
+  - update:
+      supplier:
+        - supply: 8000 tMELD
+        - supply: 6000 tMIN
+        - supply: 4000 tC3
+      borrower:
+        - supply: 500 ADA
+        - supply: 100 tWMT
+        - supply: 200 tiUSD
+        - supply: 100 tCOPI
+        - collateral: [ADA, tWMT]
+        - borrow: 1500 tMELD
+        - borrow: 200 tMIN
+        - borrow: 200 tC3
+  - wait: 5
+  - oracle:
+      ADA: 0.3
+      tMELD: 0.1
+      tWRT: 0.09
+      tCOPI: 0.015
+      tC3: 0.015
+      tMIN: 0.01
+      tHOSKY: 0.000001
+      tiUSD: 1
+      tiBTC: 17000
+      tWMT: 0.2

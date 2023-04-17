@@ -1,0 +1,129 @@
+networkId:
+  testnet: 2
+collateralUtxo: 5f8fe50e8bb2825d90af1e8bae6e61ac8fb832cd03d74eba4300ea3c1dc86526#3
+riskParameters: # TODO: Figure out how to better setup this list
+  0: # ADA
+    rpMaxLoanToValue: 0.63
+    rpLiquidationThreshold: 0.66
+    rpBorrowCap: 14000000000000
+    rpSupplyCap: 14000000000000
+    rpAssetClassData: lovelace
+    rpReserveFactor: 0.1
+    rpTargetUtilizationRate: 0.8
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.047
+    rpInterestRateSlope2: 0.95
+  1: # tMELD
+    rpMaxLoanToValue: 0.52
+    rpLiquidationThreshold: 0.55
+    rpBorrowCap: 43000000000000
+    rpSupplyCap: 43000000000000
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.744d454c44
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  2: # tWRT
+    rpMaxLoanToValue: 0.75
+    rpLiquidationThreshold: 0.85
+    rpBorrowCap: 0
+    rpSupplyCap: 0
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.74575254
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  3: # tCOPI
+    rpMaxLoanToValue: 0.75
+    rpLiquidationThreshold: 0.85
+    rpBorrowCap: 0
+    rpSupplyCap: 0
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.74434f5049
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  4: # tC3
+    rpMaxLoanToValue: 0.75
+    rpLiquidationThreshold: 0.85
+    rpBorrowCap: 0
+    rpSupplyCap: 0
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.744333
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  5: # tMIN
+    rpMaxLoanToValue: 0.56
+    rpLiquidationThreshold: 0.59
+    rpBorrowCap: 6800000000000
+    rpSupplyCap: 6800000000000
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.744d494e
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  6: # tHOSKY
+    rpMaxLoanToValue: 0.15
+    rpLiquidationThreshold: 0.16
+    rpBorrowCap: 9000000000000
+    rpSupplyCap: 22000000000000
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.74484f534b59
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  7: # tiUSD
+    rpMaxLoanToValue: 0.62
+    rpLiquidationThreshold: 0.65
+    rpBorrowCap: 1000000000000
+    rpSupplyCap: 1000000000000
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.7469555344
+    rpReserveFactor: 0.15
+    rpTargetUtilizationRate: 0.8
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.047
+    rpInterestRateSlope2: 0.95
+  8: # tiBTC
+    rpMaxLoanToValue: 0.75
+    rpLiquidationThreshold: 0.85
+    rpBorrowCap: 0
+    rpSupplyCap: 0
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.7469425443
+    rpReserveFactor: 0.15
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+  9: # tWMT
+    rpMaxLoanToValue: 0.50
+    rpLiquidationThreshold: 0.53
+    rpBorrowCap: 5000000000000
+    rpSupplyCap: 5000000000000
+    rpAssetClassData: f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.74574d54
+    rpReserveFactor: 0.25
+    rpTargetUtilizationRate: 0.6
+    rpBaseBorrowingRate: 0.003
+    rpInterestRateSlope1: 0.097
+    rpInterestRateSlope2: 9.85
+batcherFee: 0.5
+minAdaUtxo: 2
+maxValidityDuration: 60000 # 60s because 1 preview testnet slot = 1s
+initialPoolLovelace: 5000000
+closeFactor: 0.5
+maxLiquidationCloseFactor: 1
+closeFactorHealthFactorThreshold: 0.9
+closeFactorMinCollateralThreshold: 150000000
+liquidatorIncentive: 0.1
+protocolIncentive: 0.05
+initialManagerOperatorAddress: addr_test1vqwpyyj75ua0s284fgqlvdpxpu9dkj7fqdqax8kdtqkyjdcks4gf0
+initialOracleOperatorAddress: addr_test1vzx9kss2wg3y9n2dra4rgcdnkzvuz79chw0950clea0awzcwjykju
+initialMigrationOperatorAddress: addr_test1vp06a7wyvz5jtekam27fndjc94sp6j470nrq4guuffw7gygj0wap4
+initialPoolOperatorAddress: addr_test1vryny6p3324eyf3sesnqeyv4hur677yswpftfdcsc2v87csgwxk2p
+initialStakeKeyHash: ccccfe9d0126316111e68478417571072b49369cd0966878d13e8717

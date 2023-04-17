@@ -1,0 +1,6 @@
+package *
+  executable-stripping: True
+  library-stripping: True
+  split-sections: True
+  optimization: 2
+  ghc-options: -O2

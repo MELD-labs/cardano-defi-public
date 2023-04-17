@@ -1,0 +1,12 @@
+{
+    "cborHex": "5850584e010000322223232337060029040404040406267e5f36b5c487ccf73cbc08199b823370400600466e05208080a0f6f4acdbe01b001375a6ae84c8c014c014c014c014c014004d55cf1baa00357441",
+    "description": "LendingFunctionSupplyApy",
+    "params": [
+        "Lending.Types.Manager:RiskParameters",
+        "Data.Tagged:Tagged",
+        "Plutarch.Extra.FixedDecimal:FixedDecimal"
+    ],
+    "rawHex": "584e010000322223232337060029040404040406267e5f36b5c487ccf73cbc08199b823370400600466e05208080a0f6f4acdbe01b001375a6ae84c8c014c014c014c014c014004d55cf1baa00357441",
+    "role": "ValidatorRole",
+    "version": "ScriptV2"
+}

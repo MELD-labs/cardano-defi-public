@@ -1,0 +1,145 @@
+cabal-version:      3.6
+name:               lending-api
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+  ghc-options:
+    -Weverything -Werror
+    -Wno-implicit-prelude
+    -Wno-all-missed-specialisations
+    -Wno-missing-local-signatures
+    -Wno-missing-safe-haskell-mode
+    -Wno-monomorphism-restriction
+    -Wno-unsafe
+    -Wno-safe
+  build-depends:
+    , base ^>=4.14.3.0
+
+library
+  import: lang
+  hs-source-dirs:   src
+  exposed-modules:
+    Lending.Api.Common
+    Lending.Api.Config
+    Lending.Api.Env
+    Lending.Api.Handler
+    Lending.Api.Handler.Account
+    Lending.Api.Handler.GlobalState
+    Lending.Api.Handler.HistoryAccount
+    Lending.Api.Handler.Liquidation
+    Lending.Api.Handler.Manager
+    Lending.Api.Handler.Oracle
+    Lending.Api.Handler.Pool
+    Lending.Api.Handler.RiskDao
+    Lending.Api.Handler.SyncStatus
+    Lending.Api.Transactions.CloseAccount
+    Lending.Api.Transactions.CreateAccount
+    Lending.Api.Transactions.LiquidateAccount
+    Lending.Api.Transactions.UpdateAccount
+    Lending.Api.Transactions.UpdateOracle
+    Lending.Api.Transactions.UpdateTreasuryPool
+  build-depends:
+    , aeson
+    , bytestring
+    , cardano-api
+    , cardano-slotting
+    , containers
+    , esqueleto
+    , exceptions
+    , extra
+    , filepath
+    , monad-logger
+    , persistent
+    , plutus-ledger-api
+    , plutus-tx
+    , ply-core
+    , resourcet
+    , servant-server
+    , tagged
+    , text
+    , time
+    , transformers
+    , yaml
+    -- internal
+    , cardano-api-extra
+    , cardano-index
+    , cardano-tx-builder
+    , lending-api:lending-api-types
+    , lending-core
+    , lending-index
+    , lending-types
+    , plutarch-script-import
+    , plutus-ledger-api-polyfill
+    , servant-api-handlers
+
+library lending-api-types
+  import: lang
+  visibility: public
+  hs-source-dirs: types
+  exposed-modules:
+    Lending.Api.Client
+    Lending.Api.Types
+    Lending.Api.Types.Account
+    Lending.Api.Types.Aeson
+    Lending.Api.Types.Exception
+    Lending.Api.Types.GlobalState
+    Lending.Api.Types.Liquidation
+    Lending.Api.Types.Manager
+    Lending.Api.Types.Oracle
+    Lending.Api.Types.Orphans
+    Lending.Api.Types.Pool
+    Lending.Api.Types.Request
+    Lending.Api.Types.RiskDao
+    Lending.Api.Types.SyncStatus
+  build-depends:
+    , aeson
+    , aeson-casing
+    , cardano-api
+    , containers
+    , extra
+    , http-api-data
+    , insert-ordered-containers
+    , lens
+    , openapi3
+    , ouroboros-consensus
+    , servant
+    , servant-client
+    , text
+    , time
+    -- Internal
+    , cardano-api-extra
+    , cardano-index
+    , cardano-tx-builder
+    , lending-core
+    , lending-index
+    , lending-types
+    , plutus-ledger-api-polyfill
+
+executable lending-api-exe
+  import: lang
+  main-is: Main.hs
+  hs-source-dirs: app
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    , base
+    -- Internal
+    , lending-api
+    , service-runner
+
+test-suite lending-api-test
+  import:         lang
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  other-modules:
+    -- Spec.Lending.Core.Scripts
+  build-depends:
+    -- , hspec
+    -- Internal
+    -- , lending-api

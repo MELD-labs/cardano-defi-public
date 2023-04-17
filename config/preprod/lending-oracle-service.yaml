@@ -1,0 +1,35 @@
+ocCardanoNetworkId:
+  testnet: 1
+ocTokens:
+  0:
+    adSlug: cardano
+    adDecimal: 6
+  1:
+    adSlug: meld
+    adDecimal: 6
+  2:
+    adSlug: wingriders
+    adDecimal: 6
+  3:
+    adSlug: cornucopias
+    adDecimal: 6
+  4:
+    adSlug: charli3
+    adDecimal: 6
+  5:
+    adSlug: minswap
+    adDecimal: 6
+  6:
+    adSlug: hosky-token
+    adDecimal: 0
+  7:
+    adSlug: indigo-protocol-iusd
+    adDecimal: 6
+  8:
+    adSlug: bitcoin # indigo-protocol-ibtc
+    adDecimal: 6
+  9:
+    adSlug: world-mobile-token
+    adDecimal: 6
+ocThreadDelay: 1800 # 30 minutes
+ocNetworkParamsFetchDelay: 20

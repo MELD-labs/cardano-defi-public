@@ -1,0 +1,75 @@
+cabal-version:      3.6
+name:               lending-migration
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+  ghc-options:
+    -Weverything -Werror
+    -Wno-implicit-prelude
+    -Wno-all-missed-specialisations
+    -Wno-missing-local-signatures
+    -Wno-missing-safe-haskell-mode
+    -Wno-monomorphism-restriction
+    -Wno-unsafe
+    -Wno-safe
+  build-depends:
+    , base ^>=4.14.3.0
+
+library
+  import: lang
+  hs-source-dirs: src
+  exposed-modules:
+    Lending.Migration.Account
+    Lending.Migration.Common
+    Lending.Migration.Env
+    Lending.Migration.Exception
+    Lending.Migration.Manager
+  build-depends:
+    , aeson
+    , cardano-api
+    , containers
+    , esqueleto
+    , exceptions
+    , extra
+    , filepath
+    , monad-logger
+    , mtl
+    , persistent
+    , plutus-ledger-api
+    , resourcet
+    , servant-client
+    , transformers
+    , yaml
+    -- Internal
+    , cardano-api-extra
+    , cardano-tx-builder
+    , lending-api
+    , lending-api:lending-api-types
+    , lending-core
+    , lending-index
+    , lending-types
+    , plutus-ledger-api-polyfill
+
+executable lending-migration-exe
+  import:         lang
+  hs-source-dirs: app
+  main-is:        Main.hs
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    , bytestring
+    , http-client
+    , monad-logger
+    , servant-client
+    , transformers
+    , yaml
+    -- Internal
+    , cardano-api-extra
+    , lending-core
+    , lending-migration
+    , service-runner

@@ -1,0 +1,29 @@
+name: "Demo"
+disable: true
+steps:
+  - oracle:
+      ADA: 0.3
+      tMELD: 0.02
+      tWRT: 0.09
+      tCOPI: 0.015
+      tC3: 0.015
+      tMIN: 0.01
+      tHOSKY: 0.000001
+      tiUSD: 1
+      tiBTC: 17000
+      tWMT: 0.2
+  - update:
+      alice:
+        - supply: 1000 tMELD
+      bob:
+        - supply: 1000 ADA
+        - collateral: [ADA]
+  - update:
+      bob:
+        - borrow: 5 tMELD
+  - update:
+      bob:
+        - repay: 5 tMELD
+  - update:
+      bob:
+        - withdraw: 500 ADA

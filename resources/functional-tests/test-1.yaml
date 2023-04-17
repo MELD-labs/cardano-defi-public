@@ -1,0 +1,20 @@
+name: "Functional test #1"
+disable: true
+steps:
+  - oracle:
+      USDT: 1
+      ADA: 0.3
+  - update:
+      alice:
+        - supply: 50 ADA
+      bob:
+        - supply: 20.5 ADA
+        - supply: 100 USDT
+  - wait: 5
+  - update:
+      alice:
+        - borrow: 1 USDT
+        - collateral:
+            - ADA
+      bob:
+        - withdraw: 10 USDT

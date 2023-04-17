@@ -1,0 +1,17 @@
+networkId:
+  testnet: 42
+scriptBatches:
+  - scriptNames:
+      - Pool
+    fundUtxo: 163212167adc6c858489f9027a1a0dd4358d6c63f8a278a3e9c89c5f42f89c1a#0
+  - scriptNames:
+      - Account
+    fundUtxo: 163212167adc6c858489f9027a1a0dd4358d6c63f8a278a3e9c89c5f42f89c1a#1
+  - scriptNames:
+      - AccountAuthToken
+      - Manager
+      - Oracle
+      - OracleCheckerToken
+      - AlwaysFalseToken
+    fundUtxo: 163212167adc6c858489f9027a1a0dd4358d6c63f8a278a3e9c89c5f42f89c1a#2
+collateralUtxo: 163212167adc6c858489f9027a1a0dd4358d6c63f8a278a3e9c89c5f42f89c1a#3

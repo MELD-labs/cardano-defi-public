@@ -1,0 +1,11 @@
+{
+    "cborHex": "58265824010000225333573466e1c00520001480004cdc199b82002482020283dbd2b36f806c0041",
+    "description": "LendingFunctionUtilization",
+    "params": [
+        "Data.Tagged:Tagged",
+        "Data.Tagged:Tagged"
+    ],
+    "rawHex": "5824010000225333573466e1c00520001480004cdc199b82002482020283dbd2b36f806c0041",
+    "role": "ValidatorRole",
+    "version": "ScriptV2"
+}

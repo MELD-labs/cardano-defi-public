@@ -1,0 +1,86 @@
+cabal-version:      3.6
+name:               lending-faucet
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+  ghc-options:
+    -Weverything -Werror
+    -Wno-all-missed-specialisations
+    -Wno-missing-local-signatures
+    -Wno-implicit-prelude
+    -Wno-missing-export-lists
+    -Wno-missing-safe-haskell-mode
+    -Wno-safe
+    -Wno-unsafe
+  build-depends:
+    base
+
+
+library lending-faucet-types
+  import: lang
+  visibility: public
+  hs-source-dirs: types
+  exposed-modules:
+    Lending.Faucet.Exceptions
+    Lending.Faucet.Types
+  build-depends:
+    , aeson
+    , cardano-api
+    , openapi3
+    , servant
+    -- Internal
+    , cardano-index
+    -- This is not a good dependency, but we need the orphan instances
+    , lending-api:lending-api-types
+    , plutus-ledger-api-polyfill
+
+library
+  import: lang
+  hs-source-dirs: src
+  exposed-modules:
+    Lending.Faucet.Common
+    Lending.Faucet.Env
+    Lending.Faucet.Handler
+    Lending.Faucet.MintToken
+    Lending.Faucet.Preparation
+    Lending.Faucet.Status
+  build-depends:
+    , aeson
+    , cardano-api
+    , containers
+    , exceptions
+    , extra
+    , lifted-async
+    , monad-logger
+    , mtl
+    , servant-server
+    , text
+    , transformers
+    , random
+    , random-shuffle
+    , yaml
+    -- Internal
+    , api-aeson
+    , cardano-api-extra
+    , cardano-index
+    , cardano-tx-builder
+    , lending-core
+    , lending-faucet:lending-faucet-types
+    , lending-types
+    , plutus-ledger-api-polyfill
+    , servant-api-handlers
+
+executable lending-faucet-app
+  import: lang
+  hs-source-dirs: app
+  main-is: Main.hs
+  ghc-options:
+    -threaded -rtsopts
+  build-depends:
+    , lending-faucet
+    , service-runner

@@ -1,0 +1,125 @@
+# For public testnets.
+
+version: "3"
+
+services:
+  cardano-node-healthcheck:
+    image: inputoutput/cardano-node:1.35.6
+    environment:
+      CARDANO_NODE_SOCKET_PATH: /ipc/node.socket
+    volumes:
+      - cardano-node-socket:/ipc
+    entrypoint:
+      [
+        "/bin/bash",
+        "-c",
+        "until cardano-cli query tip --testnet-magic $NETWORK_MAGIC; do sleep 1; done",
+      ]
+
+  lending-bootstrap-deployer:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-bootstrap-deployer
+
+  lending-bootstrap-initializer:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-bootstrap-initializer
+
+  lending-db:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-db
+    volumes:
+      - ./${NETWORK}/db:/var/lib/postgresql/data
+
+  lending-index:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-index
+    depends_on:
+      cardano-node-healthcheck:
+        condition: service_completed_successfully
+      lending-db:
+        condition: service_healthy
+
+  lending-api:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-api
+    depends_on:
+      lending-index:
+        condition: service_started
+
+  lending-api-docs:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-api-docs
+
+  lending-services:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-services
+    profiles:
+      - batcher
+    depends_on:
+      lending-index:
+        condition: service_started
+
+  lending-oracle-service:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-oracle-service
+    profiles:
+      - oracle
+    depends_on:
+      lending-index:
+        condition: service_started
+
+  lending-faucet:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-faucet
+    profiles:
+      - faucet
+
+  lending-liquidation-bot-liquidate:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-liquidation-bot-liquidate
+    depends_on:
+      lending-index:
+        condition: service_started
+
+  lending-liquidation-bot-close-account:
+    extends:
+      file: docker-compose.base.yml
+      service: lending-liquidation-bot-close-account
+    depends_on:
+      lending-liquidation-bot-liquidate:
+        condition: service_completed_successfully
+
+volumes:
+  cardano-node-socket:
+    name: cardano-node-socket-${NETWORK}
+    external: true
+
+secrets:
+  deployer_signing_key_file:
+    file: ../secrets/$NETWORK/deployer.xsk
+  manager_operator_signing_key_file:
+    file: ../secrets/$NETWORK/manager_operator.xsk
+  oracle_operator_signing_key_file:
+    file: ../secrets/$NETWORK/oracle_operator.xsk
+  batcher_signing_key_file:
+    file: ../secrets/$NETWORK/batcher.xsk
+  faucet_signing_key_file:
+    file: ../secrets/$NETWORK/faucet.xsk
+  coin-market-cap-api-key-file:
+    file: ../secrets/$NETWORK/cmc-api
+  liquidator_signing_key_file:
+    file: ../secrets/$NETWORK/liquidator.xsk
+
+configs:
+  runtime-config:
+    file: ../config/$NETWORK/runtime

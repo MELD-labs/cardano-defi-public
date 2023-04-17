@@ -1,0 +1,10 @@
+networkId:
+  testnet: 1
+scriptBatches:
+  - scriptNames:
+      - Account
+    fundUtxo: 7951fb080a957971001ddf64170ac2f59592dcffd7cca11700ed251dffd99df4#0
+  - scriptNames:
+      - AccountAuthToken
+    fundUtxo: 5f41eca3a95085e2b3f9d4e0ad6b2189a97116cca53ac9e716c2b545426778ad#0
+collateralUtxo: 5f41eca3a95085e2b3f9d4e0ad6b2189a97116cca53ac9e716c2b545426778ad#0

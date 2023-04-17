@@ -1,0 +1,130 @@
+cabal-version:      3.6
+name:               lending-contracts
+version:            0.1.0.0
+maintainer:         meld.com
+author:             MELD Labs
+
+common lang
+  default-language: GHC2021
+  ghc-options:
+    -Weverything -Werror
+    -Wno-all-missed-specialisations
+    -Wno-implicit-prelude
+    -Wno-missing-export-lists
+    -Wno-missing-kind-signatures
+    -Wno-missing-local-signatures
+    -Wno-missing-safe-haskell-mode
+    -Wno-monomorphism-restriction
+    -Wno-safe
+    -Wno-unsafe
+  build-depends:
+    , plutarch
+    , plutarch-prelude
+
+common base-hiding-prelude
+  build-depends:
+    , base
+  mixins:
+    , base hiding (Prelude)
+
+library
+  import: lang, base-hiding-prelude
+  hs-source-dirs: src
+  ghc-options:
+    -Wwarn
+  exposed-modules:
+    Lending.Contracts.Account.OffChain
+    Lending.Contracts.Account.OnChain
+    Lending.Contracts.Account.OnChain.Apply
+    Lending.Contracts.Account.OnChain.Close
+    Lending.Contracts.Account.OnChain.Liquidate
+    Lending.Contracts.Account.OnChain.Update
+    Lending.Contracts.Account.Types
+    Lending.Contracts.AccountAuthToken.OnChain
+    Lending.Contracts.AccountAuthToken.Types
+    Lending.Contracts.AlwaysFalse
+    Lending.Contracts.AlwaysFalseToken
+    Lending.Contracts.Asset
+    Lending.Contracts.Common
+    Lending.Contracts.Exchange
+    Lending.Contracts.LoanToValue.OnChain
+    Lending.Contracts.Manager.OnChain
+    Lending.Contracts.Manager.Types
+    Lending.Contracts.Map
+    Lending.Contracts.Migrate
+    Lending.Contracts.Nft
+    Lending.Contracts.OffChain
+    Lending.Contracts.Oracle.OnChain
+    Lending.Contracts.Oracle.Types
+    Lending.Contracts.OracleCheckerToken.OnChain
+    Lending.Contracts.OracleCheckerToken.Types
+    Lending.Contracts.Orphans
+    Lending.Contracts.Request
+    Lending.Contracts.Pool.Account
+    Lending.Contracts.Pool.InterestRate
+    Lending.Contracts.Pool.OffChain
+    Lending.Contracts.Pool.OnChain
+    Lending.Contracts.Pool.Withdraw
+    Lending.Contracts.Pool.Types
+  build-depends:
+    , liqwid-plutarch-extra
+    , plutarch
+    , plutarch-extra
+    , plutus-ledger-api
+    , ply-plutarch
+    , tagged
+    -- Internal
+    , lending-types
+  mixins:
+    , plutarch-extra (Plutarch.Extra.Maybe, Plutarch.Extra.Api, Plutarch.Extra.Interval)
+
+executable lending-contracts-exporter
+  import: lang, base-hiding-prelude
+  hs-source-dirs: exporter
+  main-is: Main.hs
+  ghc-options:
+    -threaded -rtsopts
+    -Wwarn
+  build-depends:
+    , aeson
+    , liqwid-plutarch-extra
+    , optparse-applicative
+    , plutus-ledger-api
+    , yaml
+    -- Internal
+    , lending-types
+    , lending-contracts
+    , plutarch-script-export
+
+test-suite lending-contracts-test
+  import: lang
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is: Spec.hs
+  other-modules:
+    Common
+    Sample
+    Spec.Account
+    Spec.AccountAuthToken
+    Spec.InterestRate
+    Spec.Manager
+    Spec.Map
+    Spec.Nft
+    Spec.Oracle
+    Spec.OracleCheckerToken
+    Spec.Pool
+  build-depends:
+    , containers
+    , data-default
+    , liqwid-plutarch-extra
+    , plutarch-context-builder
+    , plutarch-unit
+    , plutus-ledger-api
+    , plutus-tx
+    , tagged
+    , tasty
+    , tasty-hedgehog
+    , tasty-hunit
+    -- Internal
+    , lending-contracts
+    , lending-types

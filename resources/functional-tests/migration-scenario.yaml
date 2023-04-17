@@ -1,0 +1,560 @@
+name: "Migration scenario"
+# disable: true
+steps:
+  - oracle:
+      ADA: 0.3
+      tMELD: 0.02
+      tWRT: 0.09
+      tCOPI: 0.015
+      tC3: 0.015
+      tMIN: 0.01
+      tHOSKY: 0.000001
+      tiUSD: 1
+      tiBTC: 17000
+      tWMT: 0.2
+  - update:
+      a00:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a01:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a02:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a03:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a04:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+  - update:
+      a05:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a06:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a07:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a08:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a09:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+  - update:
+      a10:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a11:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a12:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a13:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a14:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+  - update:
+      a15:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a16:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a17:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a18:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a19:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+  - update:
+      a20:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a21:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a22:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a23:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a24:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+  - update:
+      a25:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a26:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a27:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a28:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]
+      a29:
+        - supply: 10 ADA
+        - supply: 10 tMELD
+        - supply: 10 tWRT
+        - supply: 10 tCOPI
+        - supply: 10 tC3
+        - supply: 10 tMIN
+        - supply: 10 tHOSKY
+        - supply: 10 tiUSD
+        - borrow: 1 ADA
+        - borrow: 1 tMELD
+        - borrow: 1 tWRT
+        - borrow: 1 tCOPI
+        - borrow: 1 tC3
+        - borrow: 1 tMIN
+        - borrow: 1 tHOSKY
+        - borrow: 1 tiUSD
+        - collateral: [ADA, tMELD, tWRT, tCOPI, tC3, tMIN, tHOSKY, tiUSD]

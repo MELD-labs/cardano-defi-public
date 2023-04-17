@@ -1,0 +1,65 @@
+networkId:
+  testnet: 1
+networkParamsFetchDelay: 5
+mint:
+  tMELD:
+    - 37500
+    - 75000
+  tWRT:
+    - 3750
+    - 7500
+  tCOPI:
+    - 15000
+    - 37500
+  tC3:
+    - 3750
+    - 7500
+  tMIN:
+    - 375000
+    - 600000
+  tHOSKY: # We are using fixedDecimal 6
+    - 750
+    - 22500
+  tiUSD:
+    - 750
+    - 1500
+  tWMT:
+    - 7500
+    - 11250
+spent:
+  lovelace: 18000
+collateral: 5
+feeAndChange: 7005
+numberOfTokensPerUser: 3
+nft:
+  MeldBankManagerv1_1:
+    name: MeldBankManagerv1_1
+    description: Meld Bank Manager Collection v1
+    image: ipfs://QmdEAbAhrJmM6RTgWRFDtUrA7EHLzxkwU9uozFq3MQhJh9
+    mediaType: image/png
+    website: https://meld.com/
+    date: "2023-03-13 21:42:47.262855"
+    attributes:
+      - trait_type: Background
+        value: Pink Pop
+      - trait_type: Body
+        value: Red Omni Manager
+      - trait_type: Eyes
+        value: None
+      - trait_type: Mouth
+        value: None
+      - trait_type: Hair
+        value: Red Steele
+      - trait_type: Clothes
+        value: Silver Mango Mango Cloud
+      - trait_type: Accessories
+        value: None
+      - trait_type: Face
+        value: Kumo
+      - trait_type: Corona
+        value: None
+      - trait_type: Neckpiece
+        value: Ghost
+      - trait_type: Special
+        value: None
+    dna: d7d5138af73038efb7f5717612a4faa8668b0e9fa05323193888fb1974a1b1a4

@@ -1,0 +1,115 @@
+name: "Functional test #2"
+disable: true
+steps:
+  - oracle:
+      ADA: 0.3
+      tMELD: 0.02
+      tWRT: 0.09
+      tCOPI: 0.015
+      tC3: 0.015
+      tMIN: 0.01
+      tHOSKY: 0.000001
+      tiUSD: 1
+      tiBTC: 17000
+      tWMT: 0.2
+  - update:
+      a0:
+        - supply: 10 tMELD
+      a1:
+        - supply: 10 tMELD
+      a2:
+        - supply: 10 tMELD
+      a3:
+        - supply: 10 tMELD
+      a4:
+        - supply: 10 tMELD
+      a5:
+        - supply: 10 tMELD
+      a6:
+        - supply: 10 tMELD
+      a7:
+        - supply: 10 tMELD
+      a8:
+        - supply: 10 tMELD
+      a9:
+        - supply: 10 tMELD
+      a10:
+        - supply: 5 ADA
+      a11:
+        - supply: 5 ADA
+      a12:
+        - supply: 5 ADA
+      a13:
+        - supply: 5 ADA
+      a14:
+        - supply: 5 ADA
+      a15:
+        - supply: 5 ADA
+      a16:
+        - supply: 5 ADA
+      a17:
+        - supply: 5 ADA
+      a18:
+        - supply: 5 ADA
+      a19:
+        - supply: 5 ADA
+      a20:
+        - supply: 5 ADA
+      a21:
+        - supply: 5 ADA
+      a22:
+        - supply: 5 ADA
+      a23:
+        - supply: 5 ADA
+      a24:
+        - supply: 5 ADA
+      a25:
+        - supply: 5 ADA
+      a26:
+        - supply: 5 ADA
+      a27:
+        - supply: 5 ADA
+      a28:
+        - supply: 5 ADA
+      a29:
+        - supply: 5 ADA
+      a30:
+        - supply: 5 ADA
+      a31:
+        - supply: 5 ADA
+      a32:
+        - supply: 5 ADA
+      a33:
+        - supply: 5 ADA
+      a34:
+        - supply: 5 ADA
+      a35:
+        - supply: 5 ADA
+      a36:
+        - supply: 5 ADA
+      a37:
+        - supply: 5 ADA
+      a38:
+        - supply: 5 ADA
+      a39:
+        - supply: 5 ADA
+      a40:
+        - supply: 5 ADA
+      a41:
+        - supply: 5 ADA
+      a42:
+        - supply: 5 ADA
+      a43:
+        - supply: 5 ADA
+      a44:
+        - supply: 5 ADA
+      a45:
+        - supply: 5 ADA
+      a46:
+        - supply: 5 ADA
+      a47:
+        - supply: 5 ADA
+      a48:
+        - supply: 5 ADA
+      a49:
+        - supply: 5 ADA

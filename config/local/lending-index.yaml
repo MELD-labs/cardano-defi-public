@@ -1,0 +1,5 @@
+config:
+  iocBatcherPubKeyHash: ebd138b632fe3e66285a36ae1ab26bdbbc22f2cc79d7c62c146c3d22
+networkId:
+  testnet: 42
+lastSyncPointCount: 20

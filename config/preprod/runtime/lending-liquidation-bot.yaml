@@ -1,0 +1,10 @@
+lbRetryDelay: 10000000
+lbAccountId: ecc496a625c5f2f4d194f718fc906041f156818424abcbbbd2ecc78401e51228#2
+lbRepayExtra: 0.1
+lbNetworkId:
+  testnet: 1
+lbLiquidatingDebt:
+  5: 126940942169
+lbLiquidatingCollateral:
+  PriorityOrder: [0, 1]
+lbMaxRetry: 10

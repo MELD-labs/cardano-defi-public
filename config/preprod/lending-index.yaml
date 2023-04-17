@@ -1,0 +1,10 @@
+config:
+  iocBatcherPubKeyHash: 9b7124003480d53c3bee9d6d567c3525fee1b05828235a0056e89396
+networkId:
+  testnet: 1
+lastSyncPointCount: 20
+startChainPoint: # 01/15/2023 04:26:18 PM
+  tag: ChainPoint
+  contents:
+    - 18116778
+    - c7041c314ec2636618504aae9676c734b20a81ff19807ef83502411640fb82dd

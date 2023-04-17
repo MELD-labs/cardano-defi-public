@@ -1,0 +1,6 @@
+lcCardanoNetworkId:
+  testnet: 1
+lcMinRequestsPerTx: 1
+lcMinRequestsPerAttemptedTx: 8
+lcNetworkParamsFetchDelay: 20
+lcPeriodCycle: 5 # 5 seconds
